@@ -1,4 +1,5 @@
 var express = require('express');
+const { TesseractInit } = require('./tesseract');
 var app = express();
 
 // This responds with "Hello World" on the homepage
@@ -31,6 +32,9 @@ app.get('/ab*cd', function(req, res) {
    res.send('Page Pattern Match');
 })
 
+app.get('/tesseract', function(req, res) {
+    TesseractInit(res);
+})
 var server = app.listen(8081, function () {
    var host = server.address().address
    var port = server.address().port
